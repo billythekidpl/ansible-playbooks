@@ -1,0 +1,18 @@
+---
+- name: Deploy a webapp container on a remote host
+  hosts: ubuntu
+#  hosts: localhost
+#  connection: local
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:
+
+  - name: Create simple webapp container
+    docker_container:
+      name: simple-webapp
+      image: yeasy/simple-web:latest
+      state: started
+      ports:
+       - "80:80"
+
