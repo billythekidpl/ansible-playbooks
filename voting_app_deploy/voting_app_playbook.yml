@@ -1,0 +1,18 @@
+---
+- name: Deploy a voting_app container on a remote host
+  hosts: ubuntu
+#  hosts: localhost
+#  connection: local
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:
+
+  - name: Create simple voting_app container
+    docker_container:
+      name: example-voting-app
+      image: dockersamples/examplevotingapp_vote
+      state: started
+      ports:
+       - "80:80"
+
