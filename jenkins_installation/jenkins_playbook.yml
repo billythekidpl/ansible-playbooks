@@ -1,5 +1,5 @@
 ---
-- name: Install Ansible
+- name: Install and configure Jenkins
   hosts: jenkins
   become_user: root
   become: true
