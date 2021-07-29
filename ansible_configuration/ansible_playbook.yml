@@ -1,0 +1,9 @@
+---
+- name: Install Ansible
+  hosts: ec2
+  become_user: root
+  become: true
+  gather_facts: true
+  roles:
+    - role: geerlingguy.repo-epel
+    - role: geerlingguy.ansible
